@@ -3,7 +3,6 @@ import 'package:peak_physique/models/custom_icons.dart';
 import 'package:peak_physique/theme.dart';
 import 'package:peak_physique/theme_provider.dart';
 import 'package:provider/provider.dart';
-import 'package:peak_physique/models/custom_icon_model.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -16,14 +15,63 @@ class ProfileScreen extends StatelessWidget {
         title: Text('Profile'),
         actions: [
           Container(
-            
             child: Icon(CustomIcons.settings),
           ),
         ],
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [],
+      body: SafeArea(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              onPressed: () {
+                Provider.of<ThemeProvider>(context, listen: false)
+                    .toggleTheme(AppTheme.blueLightTheme);
+              },
+              child: Text('Blue LightTheme'),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Provider.of<ThemeProvider>(context, listen: false)
+                    .toggleTheme(AppTheme.blueDarkTheme);
+              },
+              child: Text('Blue DarkTheme'),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Provider.of<ThemeProvider>(context, listen: false)
+                    .toggleTheme(AppTheme.orangeLightTheme);
+              },
+              child: Text('Orange LightTheme'),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Provider.of<ThemeProvider>(context, listen: false)
+                    .toggleTheme(AppTheme.orangeDarkTheme);
+              },
+              child: Text('Orange DarkTheme'),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Provider.of<ThemeProvider>(context, listen: false)
+                    .toggleTheme(AppTheme.systemTheme);
+              },
+              child: Text('System Theme'),
+            ),
+          ],
+        ),
       ),
     );
   }

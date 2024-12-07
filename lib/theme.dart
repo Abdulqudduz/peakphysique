@@ -1,152 +1,87 @@
 import 'package:flutter/material.dart';
+import 'package:peak_physique/custom_theme.dart';
+import 'package:peak_physique/constant_color.dart';
 
 enum AppTheme {
-  light,
-  dark,
-  slateMist,
-  system,
+  blueLightTheme,
+  blueDarkTheme,
+  orangeLightTheme,
+  orangeDarkTheme,
+  systemTheme,
 }
 
-ThemeData slateMistTheme = ThemeData(
-  // Primary color used for widgets like AppBar, FloatingActionButton, etc.
-  primaryColor: Colors.blueGrey[900],
-
-  // AppBar customization
-  appBarTheme: AppBarTheme(
-    backgroundColor: Colors.green,
-    foregroundColor: Colors.white, // Text and icons in the AppBar
-    elevation: 4,
-    titleTextStyle: TextStyle(
-      color: Colors.white,
-      fontSize: 20,
-      fontWeight: FontWeight.bold,
-    ),
-  ),
-
-  // BottomNavigationBar customization
-  bottomNavigationBarTheme: BottomNavigationBarThemeData(
-    backgroundColor: Colors.blueGrey[900],
-    selectedItemColor: Colors.black,
-    unselectedItemColor: Colors.blueGrey,
-    showUnselectedLabels: true,
-    type: BottomNavigationBarType.fixed,
-  ),
-
-  // Scaffold background
-  scaffoldBackgroundColor: Colors.blueGrey[900],
-
-  // Divider color
-  dividerColor: Colors.blueGrey,
-
-  // Icon colors
-  iconTheme: IconThemeData(
-    color: Colors.blueGrey,
-  ),
-
-  // Text colors and styling
-  textTheme: TextTheme(
-    bodySmall: TextStyle(color: Colors.white, fontSize: 16),
-    bodyMedium: TextStyle(color: Colors.blueGrey[200], fontSize: 14),
-    headlineSmall: TextStyle(
-        color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold),
-    headlineMedium: TextStyle(color: Colors.white, fontSize: 20),
-    // bodySmall: TextStyle(color: Colors.blueGrey[100]),
-  ),
-
-  textButtonTheme: TextButtonThemeData(
-    style: TextButton.styleFrom(
-      foregroundColor: Colors.green,
-      backgroundColor: Colors.blueGrey[800], // Background color
-      padding: EdgeInsets.symmetric(vertical: 12, horizontal: 16),
-      textStyle: TextStyle(
-        fontSize: 16,
-        fontWeight: FontWeight.w500,
+// orange dark theme
+ThemeData orangeDarkTheme = ThemeData(
+  extensions: [
+    CustomTheme(
+      highlightAndSplashColor: KHighlightAndSplashColor,
+      inactiveColor: KInactiveColor,
+      customPrimaryGradientColor: LinearGradient(
+        colors: KCustomPrimaryGradientColor,
       ),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8),
+      customSecondaryGradientColor: LinearGradient(
+        colors: KCustomSecondaryGradientColor,
       ),
-      // overlayColor: WidgetStateProperty.all(Colors.green.withOpacity(0.1)), // Ripple effect
-    ),
-  ),
-
-  // ElevatedButton styling
-  elevatedButtonTheme: ElevatedButtonThemeData(
-    style: ElevatedButton.styleFrom(
-      foregroundColor: Colors.white,
-      backgroundColor: Colors.green, // Text color
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8),
+      textButtonBorderGradientColor: LinearGradient(
+        colors: kTextButtonBorderGradientColor,
+      ),
+      trasperentTextButtonBorderGradientColor: LinearGradient(
+        colors: kTrasperentTextButtonBorderGradientColor,
+      ),
+      customCardGradientColor: LinearGradient(
+        colors: kCustomCardGradientColor,
+      ),
+      customCircleCardGradientColor: LinearGradient(
+        colors: kCustomCircleCardGradientColor,
       ),
     ),
-  ),
-
-  // Input decoration for TextFields
-  inputDecorationTheme: InputDecorationTheme(
-    filled: true,
-    fillColor: Colors.blueGrey[800],
-    border: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(8),
-      borderSide: BorderSide(color: Colors.blueGrey),
-    ),
-    focusedBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(8),
-      borderSide: BorderSide(color: Colors.green),
-    ),
-    labelStyle: TextStyle(color: Colors.blueGrey[100]),
-  ),
-
-  // FloatingActionButton styling
-  floatingActionButtonTheme: FloatingActionButtonThemeData(
-    backgroundColor: Colors.green,
-    foregroundColor: Colors.white,
-  ),
-
-  // Chip styling
-  chipTheme: ChipThemeData(
-    backgroundColor: Colors.blueGrey[800],
-    labelStyle: TextStyle(color: Colors.white),
-    selectedColor: Colors.green,
-    secondarySelectedColor: Colors.green[700],
-    padding: EdgeInsets.symmetric(vertical: 4, horizontal: 8),
-    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-    brightness: Brightness.dark,
-  ),
-
-  // Progress indicator color
-  progressIndicatorTheme: ProgressIndicatorThemeData(
-    color: Colors.green,
-    linearTrackColor: Colors.blueGrey[700],
-  ),
-
-  // Popup menu
-  popupMenuTheme: PopupMenuThemeData(
-    color: Colors.blueGrey[800],
-    textStyle: TextStyle(color: Colors.white),
-  ),
+  ],
 );
 
-ThemeData lightTheme = ThemeData.light().copyWith(
-  appBarTheme: AppBarTheme(
-    backgroundColor: Colors.red,
-    foregroundColor: Colors.white, // Text and icons in the AppBar
-    elevation: 4,
-    titleTextStyle: TextStyle(
-      color: Colors.white,
-      fontSize: 20,
-      fontWeight: FontWeight.bold,
+//blue dark theme
+ThemeData blueDarkTheme = ThemeData(
+    bottomNavigationBarTheme:
+        BottomNavigationBarThemeData(backgroundColor: Colors.blue),
+    extensions: [
+      CustomTheme(
+        highlightAndSplashColor: KHighlightAndSplashColor,
+        inactiveColor: KInactiveColor,
+        customPrimaryColor: KCustomPrimaryColor,
+        customSecondaryColor: KCustomSecondaryColor,
+        textButtonBorderColor: kTextButtonBorderColor,
+        trasperentTextButtonBorderColor: kTrasperentTextButtonBorderColor,
+        customCardColor: kCustomCardColor,
+        customCircleCardColor: kCustomCardColor,
+      )
+    ]);
+
+//blue light theme
+ThemeData blueLightTheme = ThemeData.light();
+
+//orange light theme
+ThemeData orangeLightTheme = ThemeData(
+  extensions: [
+    CustomTheme(
+      highlightAndSplashColor: KHighlightAndSplashColor,
+      inactiveColor: KInactiveColor,
+      customPrimaryGradientColor: LinearGradient(
+        colors: KCustomPrimaryGradientColor,
+      ),
+      customSecondaryGradientColor: LinearGradient(
+        colors: KCustomSecondaryGradientColor,
+      ),
+      textButtonBorderGradientColor: LinearGradient(
+        colors: kTextButtonBorderGradientColor,
+      ),
+      trasperentTextButtonBorderGradientColor: LinearGradient(
+        colors: kTrasperentTextButtonBorderGradientColor,
+      ),
+      customCardGradientColor: LinearGradient(
+        colors: kCustomCardGradientColor,
+      ),
+      customCircleCardGradientColor: LinearGradient(
+        colors: kCustomCircleCardGradientColor,
+      ),
     ),
-  ),
-);
-ThemeData darkTheme = ThemeData(
-  scaffoldBackgroundColor: Colors.pink,
-  appBarTheme: AppBarTheme(
-    backgroundColor: Colors.blue,
-    foregroundColor: Colors.white, // Text and icons in the AppBar
-    elevation: 4,
-    titleTextStyle: TextStyle(
-      color: Colors.white,
-      fontSize: 20,
-      fontWeight: FontWeight.bold,
-    ),
-  ),
+  ],
 );

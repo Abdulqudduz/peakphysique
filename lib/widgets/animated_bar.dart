@@ -5,14 +5,12 @@ class AnimatedBar extends StatelessWidget {
     super.key,
     required this.isSelected,
     required this.animatedBarWidth,
-    required this.selectedbarcolour,
-    required this.unSelectedbarcolour,
+    required this.animatedBarcolor,
   });
 
   final bool isSelected;
   final double animatedBarWidth;
-  final List<Color> selectedbarcolour;
-  final List<Color> unSelectedbarcolour;
+  final List<Color> animatedBarcolor;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +21,7 @@ class AnimatedBar extends StatelessWidget {
       width: isSelected ? animatedBarWidth : 0,
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: isSelected ? selectedbarcolour : unSelectedbarcolour,
+          colors: animatedBarcolor,
           stops: [0.0, 1.0], // Gradient stop positions
           begin: Alignment.topLeft, // Gradient direction start
           end: Alignment.bottomRight, // Gradient direction end

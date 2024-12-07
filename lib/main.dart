@@ -20,8 +20,8 @@ class OpayApp extends StatelessWidget {
     return MaterialApp(
       initialRoute: Routes.welcomeScreen,
       onGenerateRoute: Routes.generateRoute,
-      theme: Provider.of<ThemeProvider>(context).themeData,
-      darkTheme: Provider.of<ThemeProvider>(context).dark,
+      theme: Provider.of<ThemeProvider>(context).lightThemeData,
+      darkTheme: Provider.of<ThemeProvider>(context).darkThemeData,
       themeMode: Provider.of<ThemeProvider>(context).themeMode,
     );
   }

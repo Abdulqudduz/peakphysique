@@ -61,6 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             TextFormField(
+              textInputAction: TextInputAction.next,
               controller: _userNameController,
               decoration: InputDecoration(labelText: 'User Name'),
               validator: (value) {
@@ -71,6 +72,7 @@ class _HomeScreenState extends State<HomeScreen> {
               },
             ),
             TextFormField(
+              textInputAction: TextInputAction.next,
               controller: _passwordController,
               decoration: InputDecoration(labelText: 'Password'),
               obscureText: true, // Hide the password text

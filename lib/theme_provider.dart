@@ -2,13 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:peak_physique/theme.dart';
 
 class ThemeProvider with ChangeNotifier {
-  // Default theme mode is system
+  // Default theme mode
   ThemeMode _themeMode = ThemeMode.system;
-  ThemeData _customThemeData = lightTheme;
-  ThemeData dark = darkTheme;
+  // Default theme data
+  ThemeData _lightThemeData = blueLightTheme;
+  ThemeData _darkThemeData = blueDarkTheme;
 
+  //method to access the current theme data
   ThemeMode get themeMode => _themeMode;
-  ThemeData get themeData => _customThemeData;
+  ThemeData get lightThemeData => _lightThemeData;
+  ThemeData get darkThemeData => _darkThemeData;
 
   // Set a specific theme mode
   void setThemeMode(ThemeMode themeMode) {
@@ -16,31 +19,42 @@ class ThemeProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  // Set a specific custom theme
-  void setCustomTheme(ThemeData themeData) {
-    _customThemeData = themeData;
-    _themeMode = ThemeMode.light; // Use the custom theme in light mode
+  // Set a specific light theme
+  void setLightTheme(ThemeData themeData) {
+    _lightThemeData = themeData;
+    _themeMode = ThemeMode.light;
     notifyListeners();
   }
 
-  // Toggle between light, dark, slateMist, and system themes
+  // Set a specific dark theme
+  void setDarkTheme(ThemeData themeData) {
+    _darkThemeData = themeData;
+    _themeMode = ThemeMode.dark;
+    notifyListeners();
+  }
+
+  // Toggle between the various theme
   void toggleTheme(AppTheme theme) {
     switch (theme) {
-      case AppTheme.light:
+      case AppTheme.blueLightTheme:
         setThemeMode(ThemeMode.light);
-        _customThemeData = lightTheme;
+        _lightThemeData = blueLightTheme;
         break;
-      case AppTheme.dark:
+      case AppTheme.blueDarkTheme:
         setThemeMode(ThemeMode.dark);
-        _customThemeData = darkTheme;
+        _lightThemeData = blueDarkTheme;
         break;
-      case AppTheme.slateMist:
-        setCustomTheme(slateMistTheme);
+      case AppTheme.orangeLightTheme:
+        setThemeMode(ThemeMode.light);
+        _lightThemeData = orangeLightTheme;
         break;
-      case AppTheme.system:
-        _customThemeData = lightTheme;
+      case AppTheme.orangeDarkTheme:
+        setThemeMode(ThemeMode.dark);
+        _darkThemeData = orangeDarkTheme;
+
+        break;
+      case AppTheme.systemTheme:
         setThemeMode(ThemeMode.system);
-        break;
     }
     notifyListeners();
   }
