@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CustomScaffold extends StatelessWidget {
-  final AppBar? appBar;
+  final PreferredSizeWidget? appBar;
   final Widget? body;
   final BottomNavigationBar? bottomNavigationBar;
   final Gradient? gradient;

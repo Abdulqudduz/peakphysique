@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 
 class AnimatedBar extends StatelessWidget {
-  const AnimatedBar({
-    super.key,
-    required this.isSelected,
-    required this.animatedBarWidth,
-    required this.animatedBarcolor,
-  });
+  const AnimatedBar(
+      {super.key,
+      required this.isSelected,
+      required this.animatedBarWidth,
+      this.gradient,
+      this.color});
 
   final bool isSelected;
   final double animatedBarWidth;
-  final List<Color> animatedBarcolor;
+  final Gradient? gradient;
+
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
@@ -20,12 +22,8 @@ class AnimatedBar extends StatelessWidget {
       height: 2,
       width: isSelected ? animatedBarWidth : 0,
       decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: animatedBarcolor,
-          stops: [0.0, 1.0], // Gradient stop positions
-          begin: Alignment.topLeft, // Gradient direction start
-          end: Alignment.bottomRight, // Gradient direction end
-        ),
+        color: color,
+        gradient: gradient,
         borderRadius: BorderRadius.circular(12),
       ),
     );

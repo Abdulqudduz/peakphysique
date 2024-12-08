@@ -23,11 +23,11 @@ class CustomBottomNavigationBar extends StatefulWidget {
 class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   final BottomnavBarIconData navBarItem = BottomnavBarIconData();
   double animatedBarWidth = 20;
+  double animatedIconSize = 25;
+  double unAnimatedIconSize = 20;
 
   @override
   Widget build(BuildContext context) {
-    double animatedIconSize = 25;
-    double unAnimatedIconSize = 20;
     final customTheme = Theme.of(context).extension<CustomTheme>();
     bool isGradient = customTheme?.customPrimaryGradientColor?.colors != null;
 
@@ -35,9 +35,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
       height: 60,
       margin: EdgeInsets.all(24),
       decoration: BoxDecoration(
-        color: !isGradient
-            ? Theme.of(context).bottomNavigationBarTheme.backgroundColor
-            : null,
+        color: !isGradient ? customTheme!.customPrimaryColor : null,
         gradient: isGradient
             ? LinearGradient(
                 colors: customTheme!.customPrimaryGradientColor!.colors,
@@ -82,7 +80,20 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
                       AnimatedBar(
                         isSelected: isSelected,
                         animatedBarWidth: animatedBarWidth,
-                        animatedBarcolor: KCustomSecondaryGradientColor,
+                        color: isSelected && !isGradient
+                            ? customTheme!.customSecondaryColor
+                            : customTheme!.inactiveColor,
+                        gradient: isGradient
+                            ? LinearGradient(
+                                colors: customTheme
+                                    .customSecondaryGradientColor!.colors,
+                                stops: [0.0, 1.0], // Gradient stop positions
+                                begin: Alignment
+                                    .topLeft, // Gradient direction start
+                                end: Alignment
+                                    .bottomRight, // Gradient direction end
+                              )
+                            : null,
                       ),
                       AnimatedContainer(
                         duration: Duration(milliseconds: 100),
@@ -94,17 +105,15 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
                         child: CustomIconColor(
                           icon: navBarItem.data[index].icon,
                           solidColor: isSelected && !isGradient
-                              ? Colors.green
-                              : KInactiveColor,
+                              ? customTheme.customSecondaryColor
+                              : customTheme.inactiveColor,
                           size: isSelected
                               ? animatedIconSize
                               : unAnimatedIconSize,
                           gradient: isSelected && isGradient
                               ? LinearGradient(
-                                  colors: Theme.of(context)
-                                      .extension<CustomTheme>()!
-                                      .customSecondaryGradientColor!
-                                      .colors,
+                                  colors: customTheme
+                                      .customSecondaryGradientColor!.colors,
                                   stops: [0.0, 1.0],
                                   begin: Alignment.topLeft,
                                   end: Alignment.bottomRight,

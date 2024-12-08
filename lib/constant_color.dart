@@ -7,6 +7,11 @@ const List<Color> KCustomPrimaryGradientColor = [
   Color(0xFF121416),
 ];
 
+const List<Color> KCustomPrimaryGradientColor2 = [
+  Color(0xFFD6D7D9), // Light counterpart of 0xFF353A40
+  Color(0xFFEDEDED), // Light counterpart of 0xFF121416
+];
+
 const List<Color> KCustomSecondaryGradientColor = [
   Color(0xFFFFA05C),
   Color(0xFFF06500),
@@ -17,9 +22,19 @@ const List<Color> kTextButtonBorderGradientColor = [
   Color(0xFFCD5B0A),
 ];
 
+const List<Color> kTextButtonBorderGradientColor2 = [
+  Color(0xFFFFFFFF), // White
+  Color(0xFFCD5B0A), // Retained
+];
+
 const List<Color> kTrasperentTextButtonBorderGradientColor = [
   Color(0xFFFFFFFF),
   Color(0xFF121416),
+];
+
+const List<Color> kTrasperentTextButtonBorderGradientColor2 = [
+  Color(0xFFFFFFFF), // White
+  Color(0xFFEDEDED), // Light counterpart of 0xFF121416
 ];
 
 const List<Color> kCustomCardGradientColor = [
@@ -27,14 +42,30 @@ const List<Color> kCustomCardGradientColor = [
   Color(0xFF161512),
 ];
 
+const List<Color> kCustomCardGradientColor2 = [
+  Color(0xFFEA8945), // Retained
+  Color(0xFFF8F8F8), // Light counterpart of 0xFF161512
+];
+
 const List<Color> kCustomCircleCardGradientColor = [
   Color(0xFF32383E),
   Color(0xFF17191C),
 ];
 
+const List<Color> kCustomCircleCardGradientColor2 = [
+  Color(0xFFDFE0E2), // Light counterpart of 0xFF32383E
+  Color(0xFFF4F4F5), // Light counterpart of 0xFF17191C
+];
+
 const Color KInactiveColor = Color(0xFF71717A);
 
+const Color KInactiveColorB =
+    Color(0xFFC5C5C7); // Light counterpart of 0xFF71717A
+
 const Color KTextFormFieldColor = Color(0xFF3F3F46);
+
+const Color KTextFormFieldColorB =
+    Color(0xFFEAEAEA); // Light counterpart of 0xFF3F3F46
 
 const Color KTextFormFieldIconColor = Color(0xFFC6C6C6);
 
@@ -44,51 +75,75 @@ const Color KHighlightAndSplashColor = Color(0xFFFFA05C);
 
 //blue theme colors
 
-const Color KCustomPrimaryColor = Colors.white;
+const Color KCustomPrimaryColorWhite =
+    Color(0xFFD6E4F2); // Soft white with a hint of blue for harmony.
 
-const Color KCustomSecondaryColor = Colors.lightBlue;
+const Color KCustomPrimaryColorBlack =
+    Color(0xFF0A0E1A); // Deep navy blue as a replacement for black.
 
-const Color kTextButtonBorderColor = Colors.lightBlueAccent;
+const Color KCustomSecondaryColor =
+    Color(0xFF1A73E8); // Bright blue for secondary highlights.
 
-const Color kTrasperentTextButtonBorderColor = Colors.deepPurple;
+const Color kTextButtonBorderColor =
+    Color(0xFF4285F4); // Vibrant blue accent for buttons.
 
-const Color kCustomCardColor = Colors.blueGrey;
+const Color kTrasperentTextButtonBorderColor =
+    Color(0xFF2C3E50); // Dark blue-gray for transparency effects.
 
-const Color kCustomCircleCardtColor = Colors.blueGrey;
+const Color kCustomCardColor =
+    Color(0xFF1C2833); // Dark blue-gray for card backgrounds.
 
-const Color KInactiveColor2 = Color(0xFF71717A);
+const Color kCustomCircleCardtColor =
+    Color(0xFF1F2A36); // Slightly lighter blue-gray for circle cards.
 
-const Color KTextFormFieldColor2 = Color(0xFF3F3F46);
+const Color KInactiveColor2 =
+    Color(0xFF4A5367); // Muted blue-gray for inactive elements.
 
-const Color KTextFormFieldIconColor2 = Colors.lightBlue;
+const Color KTextFormFieldColor2 =
+    Color(0xFF283747); // Darker blue-gray for text form fields.
 
-const Color KCustomSecondaryColorB2 = Colors.blueGrey;
+const Color KTextFormFieldIconColor2 =
+    Color(0xFF5DADE2); // Light blue for form icons.
 
-const Color KHighlightAndSplashColor2 = Colors.blue;
+const Color KCustomSecondaryColorB2 =
+    Color(0xFF34495E); // Muted blue-gray for secondary elements.
 
+const Color KHighlightAndSplashColor2 =
+    Color(0xFF0E5F9E); // Rich blue for highlights and splash effects.
 
+//light
+const Color KCustomPrimaryColorWhiteA =
+    Color(0xFFFFFFFF); // Pure white for a clean, light theme.
 
-// //blue theme colors
+const Color KCustomPrimaryColorBlackA =
+    Color(0xFFB3C7E6); // Light blue-gray for a soft alternative to black.
 
-// const Color KCustomPrimaryColor = Color(0xFFC6C6C6);
+const Color KCustomSecondaryColorA =
+    Color(0xFF80C1FF); // Soft sky blue for secondary highlights.
 
-// const Color KCustomSecondaryColor = Color(0xFFC6C6C6);
+const Color kTextButtonBorderColorA =
+    Color(0xFF9FD4FF); // Lighter blue for button borders.
 
-// const Color kTextButtonBorderColor = Color(0xFFC6C6C6);
+const Color kTrasperentTextButtonBorderColorA =
+    Color(0xFFEBF3FC); // Very light blue for transparency effects.
 
-// const Color kTrasperentTextButtonBorderColor = Color(0xFFC6C6C6);
+const Color kCustomCardColorA =
+    Color(0xFFE1ECF8); // Soft light blue for card backgrounds.
 
-// const Color kCustomCardColor = Color(0xFFC6C6C6);
+const Color kCustomCircleCardtColorA =
+    Color(0xFFD9E9F8); // Slightly darker light blue for circle cards.
 
-// const Color kCustomCircleCardtColor = Color(0xFFC6C6C6);
+const Color KInactiveColor2A =
+    Color(0xFFCDD8E3); // Muted light blue for inactive elements.
 
-// const Color KInactiveColor2 = Color(0xFF71717A);
+const Color KTextFormFieldColor2A =
+    Color(0xFFE8F1FC); // Subtle blue for text form fields.
 
-// const Color KTextFormFieldColor2 = Color(0xFF3F3F46);
+const Color KTextFormFieldIconColor2A =
+    Color(0xFF5DADE2); // Vibrant light blue for form icons.
 
-// const Color KTextFormFieldIconColor2 = Color(0xFFC6C6C6);
+const Color KCustomSecondaryColorB2A =
+    Color(0xFFBCCEDF); // Muted light blue for secondary elements.
 
-// const Color KCustomSecondaryColorB2 = Color(0xFFFFA05C);
-
-// const Color KHighlightAndSplashColor2 = Color(0xFFFFA05C);
-
+const Color KHighlightAndSplashColor2A =
+    Color(0xFF79BFFF); // Bright sky blue for highlights and splash effects.

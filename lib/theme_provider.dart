@@ -16,21 +16,18 @@ class ThemeProvider with ChangeNotifier {
   // Set a specific theme mode
   void setThemeMode(ThemeMode themeMode) {
     _themeMode = themeMode;
-    notifyListeners();
   }
 
   // Set a specific light theme
   void setLightTheme(ThemeData themeData) {
     _lightThemeData = themeData;
     _themeMode = ThemeMode.light;
-    notifyListeners();
   }
 
   // Set a specific dark theme
   void setDarkTheme(ThemeData themeData) {
     _darkThemeData = themeData;
     _themeMode = ThemeMode.dark;
-    notifyListeners();
   }
 
   // Toggle between the various theme
@@ -38,19 +35,19 @@ class ThemeProvider with ChangeNotifier {
     switch (theme) {
       case AppTheme.blueLightTheme:
         setThemeMode(ThemeMode.light);
-        _lightThemeData = blueLightTheme;
+        setLightTheme(blueLightTheme);
         break;
       case AppTheme.blueDarkTheme:
         setThemeMode(ThemeMode.dark);
-        _lightThemeData = blueDarkTheme;
+        setDarkTheme(blueDarkTheme);
         break;
       case AppTheme.orangeLightTheme:
         setThemeMode(ThemeMode.light);
-        _lightThemeData = orangeLightTheme;
+        setLightTheme(orangeLightTheme);
         break;
       case AppTheme.orangeDarkTheme:
         setThemeMode(ThemeMode.dark);
-        _darkThemeData = orangeDarkTheme;
+        setDarkTheme(orangeDarkTheme);
 
         break;
       case AppTheme.systemTheme:
