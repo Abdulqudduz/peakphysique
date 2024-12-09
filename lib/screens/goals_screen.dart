@@ -11,8 +11,11 @@ class GoalsScreen extends StatelessWidget {
     final customTheme = Theme.of(context).extension<CustomTheme>();
     bool isGradient = customTheme?.customPrimaryGradientColor?.colors != null;
 
-    return CustomScaffold(
+    return Scaffold(
+      extendBody: true,
+      backgroundColor: Colors.red,
       appBar: CustomAppBar(
+        color: Colors.pink,
         title: CustomText(
           text: 'Goals',
           size: 23,

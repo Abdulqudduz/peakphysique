@@ -33,7 +33,6 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
 
     return Container(
       height: 60,
-      margin: EdgeInsets.all(24),
       decoration: BoxDecoration(
         color: !isGradient ? customTheme!.customPrimaryColor : null,
         gradient: isGradient

@@ -34,15 +34,17 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: IndexedStack(
-          index: _currentIndex,
-          children: _screens,
-        ),
+      extendBody: true,
+      body: IndexedStack(
+        index: _currentIndex,
+        children: _screens,
       ),
-      bottomNavigationBar: CustomBottomNavigationBar(
-        selectedIndex: _currentIndex,
-        onIconTap: _onIconTapped,
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.all(24.0),
+        child: CustomBottomNavigationBar(
+          selectedIndex: _currentIndex,
+          onIconTap: _onIconTapped,
+        ),
       ),
     );
   }

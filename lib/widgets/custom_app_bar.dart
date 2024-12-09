@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:peak_physique/custom_theme.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({
@@ -24,6 +25,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    final customTheme = Theme.of(context).extension<CustomTheme>();
+    bool isGradient = customTheme?.customPrimaryGradientColor?.colors != null;
+
     return PreferredSize(
       preferredSize: Size.fromHeight(height),
       child: Stack(
