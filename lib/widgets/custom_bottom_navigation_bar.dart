@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:peak_physique/data/bottom_nav_bar_icon_data.dart';
-import 'package:peak_physique/constant_color.dart';
+
 // import 'package:gradient_icon/gradient_icon.dart';
 import 'package:peak_physique/widgets/animated_bar.dart';
 import 'package:peak_physique/custom_theme.dart';
@@ -103,7 +103,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
                             isSelected ? animatedIconSize : unAnimatedIconSize,
                         child: CustomIconColor(
                           icon: navBarItem.data[index].icon,
-                          solidColor: isSelected && !isGradient
+                          color: isSelected && !isGradient
                               ? customTheme.customSecondaryColor
                               : customTheme.inactiveColor,
                           size: isSelected

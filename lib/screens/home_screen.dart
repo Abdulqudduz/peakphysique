@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert'; // For JSON encoding/decoding
 import 'package:peak_physique/widgets/custom_scaffold.dart';
+import 'package:peak_physique/widgets/custom_app_bar.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -52,7 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return CustomScaffold(
-      appBar: AppBar(
+      appBar: CustomAppBar(
         title: Text('Submit Form to Flask'),
       ),
       body: Form(

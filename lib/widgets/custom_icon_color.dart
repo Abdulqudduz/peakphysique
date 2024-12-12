@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:peak_physique/custom_theme.dart';
 
 /// A widget for displaying icons with a gradient effect or a solid color.
 ///
@@ -8,7 +9,7 @@ import 'package:flutter/material.dart';
 class CustomIconColor extends StatelessWidget {
   final IconData icon;
   final Gradient? gradient;
-  final Color? solidColor;
+  final Color? color;
   final double size;
   final Offset? offset;
 
@@ -22,7 +23,7 @@ class CustomIconColor extends StatelessWidget {
   const CustomIconColor({
     required this.icon,
     this.gradient,
-    this.solidColor,
+    this.color,
     this.size = 25,
     this.offset,
     Key? key,
@@ -31,17 +32,38 @@ class CustomIconColor extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     assert(
-      gradient != null || solidColor != null,
+      gradient != null || color != null,
       'Either gradient or solidColor must be provided.',
     );
+    final customTheme = Theme.of(context).extension<CustomTheme>();
+    bool isGradient = customTheme?.customSecondaryGradientColor?.colors != null;
+    // final Color? defaultColor =
+    //     !isGradient ? customTheme!.customSecondaryColor : null;
+    // final LinearGradient? defaultGradient = isGradient
+    //     ? LinearGradient(
+    //         colors: customTheme!.customSecondaryGradientColor!.colors,
+    //         stops: [0.23, 0.70],
+    //         begin: Alignment.topLeft,
+    //         end: Alignment.bottomRight,
+    //       )
+    //     : null;
+    // Gradient? useGradient;
+    // Color? useColor;
+    // if (gradient == null) {
+    //   useColor = defaultColor;
+    //   useGradient = defaultGradient;
+    // } else {
+    //   useGradient = gradient!;
+    // }
 
     return RepaintBoundary(
       child: CustomPaint(
         size: Size(size, size),
         painter: _GradientIconPainter(
           icon: icon,
-          gradient: gradient,
-          solidColor: solidColor,
+          color: !isGradient ? customTheme!.customSecondaryColor : null,
+          gradient:
+              isGradient ? customTheme!.customSecondaryGradientColor : null,
           iconSize: size,
           offsets: offset,
         ),
@@ -57,7 +79,7 @@ class CustomIconColor extends StatelessWidget {
 class _GradientIconPainter extends CustomPainter {
   final IconData icon;
   final Gradient? gradient;
-  final Color? solidColor;
+  final Color? color;
   final double iconSize;
   final Offset? offsets;
 
@@ -70,7 +92,7 @@ class _GradientIconPainter extends CustomPainter {
   _GradientIconPainter({
     required this.icon,
     this.gradient,
-    this.solidColor,
+    this.color,
     required this.iconSize,
     this.offsets,
   });
@@ -84,8 +106,8 @@ class _GradientIconPainter extends CustomPainter {
       paint.shader = gradient!.createShader(
         Rect.fromLTWH(0.0, 0.0, size.width, size.height),
       );
-    } else if (solidColor != null) {
-      paint.color = solidColor!;
+    } else if (color != null) {
+      paint.color = color!;
     }
 
     // Create a TextPainter to render the icon character
@@ -120,7 +142,7 @@ class _GradientIconPainter extends CustomPainter {
   bool shouldRepaint(_GradientIconPainter oldDelegate) {
     return icon != oldDelegate.icon ||
         gradient != oldDelegate.gradient ||
-        solidColor != oldDelegate.solidColor ||
+        color != oldDelegate.color ||
         iconSize != oldDelegate.iconSize;
   }
 }

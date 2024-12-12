@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:peak_physique/custom_theme.dart';
 import 'package:peak_physique/models/custom_icons.dart';
 import 'package:peak_physique/route/route.dart';
-import 'package:peak_physique/widgets/custom_text.dart';
+import 'package:peak_physique/widgets/custom_text_color.dart';
 import 'package:peak_physique/widgets/custom_scaffold.dart';
 
 class WelcomeScreen extends StatelessWidget {
@@ -29,21 +29,21 @@ class WelcomeScreen extends StatelessWidget {
             padding: const EdgeInsets.all(10.0),
             child: Icon(CustomIcons.dragon),
           ),
-          CustomText(
+          CustomTextColor(
             text: 'Welcome to',
-            colour: Colors.white,
+            // color: Colors.white,
             size: 14,
           ),
-          CustomText(
+          CustomTextColor(
             text: 'PeakPhysique',
-            colour: Colors.orange,
+            // color: Colors.orange,
             size: 20,
           ),
-          CustomText(
+          CustomTextColor(
             text: 'Exercise is health, and your journey to '
                 'strength, endurance, and confidence starts '
                 'here. Let’s reach your peak together',
-            colour: Colors.white,
+            // color: Colors.white,
             size: 20,
           ),
           TextButton(

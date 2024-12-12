@@ -3,16 +3,16 @@ import 'package:peak_physique/models/custom_icons.dart';
 import 'package:peak_physique/theme.dart';
 import 'package:peak_physique/theme_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:peak_physique/widgets/custom_app_bar.dart';
+import 'package:peak_physique/widgets/custom_scaffold.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.blue,
-      appBar: AppBar(
-        backgroundColor: Colors.green,
+    return CustomScaffold(
+      appBar: CustomAppBar(
         automaticallyImplyLeading: false,
         title: Center(child: Text('Profile')),
         actions: [

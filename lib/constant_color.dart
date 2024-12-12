@@ -73,13 +73,9 @@ const Color KCustomSecondaryColorB = Color(0xFFFFA05C);
 
 const Color KHighlightAndSplashColor = Color(0xFFFFA05C);
 
-//blue theme colors
+//blue theme colorColor(0xFFBCCEDF)s
 
-const Color KCustomPrimaryColorWhite =
-    Color(0xFFD6E4F2); // Soft white with a hint of blue for harmony.
-
-const Color KCustomPrimaryColorBlack =
-    Color(0xFF0A0E1A); // Deep navy blue as a replacement for black.
+const Color KCustomPrimaryColorBlack = Color(0xFF121416);
 
 const Color KCustomSecondaryColor =
     Color(0xFF1A73E8); // Bright blue for secondary highlights.
@@ -119,7 +115,7 @@ const Color KCustomPrimaryColorBlackA =
     Color(0xFFB3C7E6); // Light blue-gray for a soft alternative to black.
 
 const Color KCustomSecondaryColorA =
-    Color(0xFF80C1FF); // Soft sky blue for secondary highlights.
+    Color(0xFF1A73E8); // Soft sky blue for secondary highlights.
 
 const Color kTextButtonBorderColorA =
     Color(0xFF9FD4FF); // Lighter blue for button borders.
@@ -143,7 +139,7 @@ const Color KTextFormFieldIconColor2A =
     Color(0xFF5DADE2); // Vibrant light blue for form icons.
 
 const Color KCustomSecondaryColorB2A =
-    Color(0xFFBCCEDF); // Muted light blue for secondary elements.
+    Color(0xFF80C1FF); // Muted light blue for secondary elements.
 
 const Color KHighlightAndSplashColor2A =
     Color(0xFF79BFFF); // Bright sky blue for highlights and splash effects.

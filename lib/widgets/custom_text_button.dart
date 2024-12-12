@@ -1,21 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:peak_physique/custom_theme.dart';
 
-class CustomScaffold extends StatelessWidget {
-  late final Color? color;
-  late final Gradient? gradient;
-  final PreferredSizeWidget? appBar;
-  final Widget? body;
-  final BottomNavigationBar? bottomNavigationBar;
-  final bool extendBody;
+class CustomTextButton extends StatelessWidget {
+  const CustomTextButton({
+    required this.onPressed,
+    required this.child,
+    this.color,
+    this.gradient,
+    this.height,
+    this.width,
+    this.borderRadius = 5,
+  });
 
-  CustomScaffold(
-      {this.color,
-      this.gradient,
-      this.appBar,
-      this.body,
-      this.bottomNavigationBar,
-      this.extendBody = true});
+  final Function() onPressed;
+  final Widget child;
+  final Color? color;
+  final Gradient? gradient;
+  final double? borderRadius;
+  final double? height;
+  final double? width;
 
   @override
   Widget build(BuildContext context) {
@@ -39,17 +42,17 @@ class CustomScaffold extends StatelessWidget {
     } else {
       useGradient = gradient!;
     }
-
-    return Scaffold(
-      extendBody: extendBody,
-      appBar: appBar,
-      body: Container(
-        width: double.infinity,
+    return TextButton(
+      onPressed: onPressed,
+      child: Container(
+        height: height,
+        width: width,
         decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(borderRadius!),
           color: !isGradient ? useColor : null,
           gradient: isGradient ? useGradient : null,
         ),
-        child: body,
+        child: child,
       ),
     );
   }

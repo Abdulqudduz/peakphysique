@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:peak_physique/custom_theme.dart';
 import 'package:peak_physique/widgets/custom_app_bar.dart';
 import 'package:peak_physique/widgets/custom_scaffold.dart';
-import 'package:peak_physique/widgets/custom_text.dart';
+import 'package:peak_physique/widgets/custom_text_color.dart';
 import 'package:peak_physique/widgets/custom_progress_bar.dart';
 
 class GoalsScreen extends StatelessWidget {
@@ -11,12 +11,10 @@ class GoalsScreen extends StatelessWidget {
     final customTheme = Theme.of(context).extension<CustomTheme>();
     bool isGradient = customTheme?.customPrimaryGradientColor?.colors != null;
 
-    return Scaffold(
+    return CustomScaffold(
       extendBody: true,
-      backgroundColor: Colors.red,
       appBar: CustomAppBar(
-        color: Colors.pink,
-        title: CustomText(
+        title: CustomTextColor(
           text: 'Goals',
           size: 23,
         ),

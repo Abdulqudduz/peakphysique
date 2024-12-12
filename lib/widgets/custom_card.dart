@@ -1,29 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:peak_physique/custom_theme.dart';
 
-class AnimatedBar extends StatelessWidget {
-  const AnimatedBar(
-      {super.key,
-      required this.isSelected,
-      required this.animatedBarWidth,
-      this.gradient,
-      this.color});
+class CustomCard extends StatelessWidget {
+  CustomCard({
+    this.child,
+    this.color,
+    this.gradient,
+    this.height,
+    this.width,
+    this.borderRadius = 5,
+  });
 
-  final bool isSelected;
-  final double animatedBarWidth;
-  final Gradient? gradient;
-
+  final double? height;
+  final double? width;
   final Color? color;
+  final Gradient? gradient;
+  final Widget? child;
+
+  final double? borderRadius;
 
   @override
   Widget build(BuildContext context) {
     final customTheme = Theme.of(context).extension<CustomTheme>();
-    bool isGradient = customTheme?.customSecondaryGradientColor?.colors != null;
+    bool isGradient = customTheme?.customPrimaryGradientColor?.colors != null;
     final Color? defaultColor =
-        !isGradient ? customTheme!.customSecondaryColor : null;
+        !isGradient ? customTheme!.customPrimaryColor : null;
     final LinearGradient? defaultGradient = isGradient
         ? LinearGradient(
-            colors: customTheme!.customSecondaryGradientColor!.colors,
+            colors: customTheme!.customPrimaryGradientColor!.colors,
             stops: [0.23, 0.70],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
@@ -37,16 +41,15 @@ class AnimatedBar extends StatelessWidget {
     } else {
       useGradient = gradient!;
     }
-    return AnimatedContainer(
-      duration: Duration(milliseconds: 100), // Corrected duration
-      margin: EdgeInsets.only(bottom: 2),
-      height: 2,
-      width: isSelected ? animatedBarWidth : 0,
+    return Container(
+      height: height,
+      width: width,
       decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(borderRadius!),
         color: !isGradient ? useColor : null,
         gradient: isGradient ? useGradient : null,
-        borderRadius: BorderRadius.circular(12),
       ),
+      child: child,
     );
   }
 }
