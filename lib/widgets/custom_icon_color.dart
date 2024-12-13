@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:peak_physique/custom_theme.dart';
 
 /// A widget for displaying icons with a gradient effect or a solid color.
 ///
@@ -35,35 +34,14 @@ class CustomIconColor extends StatelessWidget {
       gradient != null || color != null,
       'Either gradient or solidColor must be provided.',
     );
-    final customTheme = Theme.of(context).extension<CustomTheme>();
-    bool isGradient = customTheme?.customSecondaryGradientColor?.colors != null;
-    // final Color? defaultColor =
-    //     !isGradient ? customTheme!.customSecondaryColor : null;
-    // final LinearGradient? defaultGradient = isGradient
-    //     ? LinearGradient(
-    //         colors: customTheme!.customSecondaryGradientColor!.colors,
-    //         stops: [0.23, 0.70],
-    //         begin: Alignment.topLeft,
-    //         end: Alignment.bottomRight,
-    //       )
-    //     : null;
-    // Gradient? useGradient;
-    // Color? useColor;
-    // if (gradient == null) {
-    //   useColor = defaultColor;
-    //   useGradient = defaultGradient;
-    // } else {
-    //   useGradient = gradient!;
-    // }
 
     return RepaintBoundary(
       child: CustomPaint(
         size: Size(size, size),
         painter: _GradientIconPainter(
           icon: icon,
-          color: !isGradient ? customTheme!.customSecondaryColor : null,
-          gradient:
-              isGradient ? customTheme!.customSecondaryGradientColor : null,
+          color: color,
+          gradient: gradient,
           iconSize: size,
           offsets: offset,
         ),

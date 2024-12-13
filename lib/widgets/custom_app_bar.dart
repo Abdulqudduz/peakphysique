@@ -25,26 +25,6 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    final customTheme = Theme.of(context).extension<CustomTheme>();
-    bool isGradient = customTheme?.customPrimaryGradientColor?.colors != null;
-    final Color? defaultColor =
-        !isGradient ? customTheme!.customPrimaryColor : null;
-    final LinearGradient? defaultGradient = isGradient
-        ? LinearGradient(
-            colors: customTheme!.customPrimaryGradientColor!.colors,
-            stops: [0.23, 0.70],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          )
-        : null;
-    Gradient? useGradient;
-    Color? useColor;
-    if (gradient == null) {
-      useColor = defaultColor;
-      useGradient = defaultGradient;
-    } else {
-      useGradient = gradient!;
-    }
     return PreferredSize(
       preferredSize: Size.fromHeight(height),
       child: Stack(
@@ -52,8 +32,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           // Gradient Background
           Container(
             decoration: BoxDecoration(
-              color: !isGradient ? useColor : null,
-              gradient: isGradient ? useGradient : null,
+              color: color,
+              gradient: gradient,
             ),
           ),
           // AppBar Content

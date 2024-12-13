@@ -4,6 +4,7 @@ import 'package:peak_physique/widgets/custom_app_bar.dart';
 import 'package:peak_physique/widgets/custom_scaffold.dart';
 import 'package:peak_physique/widgets/custom_text_color.dart';
 import 'package:peak_physique/widgets/custom_progress_bar.dart';
+import 'package:peak_physique/constant_gradient.dart';
 
 class GoalsScreen extends StatelessWidget {
   @override
@@ -12,6 +13,9 @@ class GoalsScreen extends StatelessWidget {
     bool isGradient = customTheme?.customPrimaryGradientColor?.colors != null;
 
     return CustomScaffold(
+      gradient: isGradient
+          ? linearGradient(customTheme!.customPrimaryGradientColor!.colors)
+          : null,
       extendBody: true,
       appBar: CustomAppBar(
         title: CustomTextColor(

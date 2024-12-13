@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:peak_physique/custom_theme.dart';
 
 class CustomScaffold extends StatelessWidget {
-  late final Color? color;
+  late final Color? backgroundColor;
   late final Gradient? gradient;
   final PreferredSizeWidget? appBar;
   final Widget? body;
@@ -10,7 +9,7 @@ class CustomScaffold extends StatelessWidget {
   final bool extendBody;
 
   CustomScaffold(
-      {this.color,
+      {this.backgroundColor,
       this.gradient,
       this.appBar,
       this.body,
@@ -19,35 +18,14 @@ class CustomScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final customTheme = Theme.of(context).extension<CustomTheme>();
-    bool isGradient = customTheme?.customPrimaryGradientColor?.colors != null;
-    final Color? defaultColor =
-        !isGradient ? customTheme!.customPrimaryColor : null;
-    final LinearGradient? defaultGradient = isGradient
-        ? LinearGradient(
-            colors: customTheme!.customPrimaryGradientColor!.colors,
-            stops: [0.23, 0.70],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          )
-        : null;
-    Gradient? useGradient;
-    Color? useColor;
-    if (gradient == null) {
-      useColor = defaultColor;
-      useGradient = defaultGradient;
-    } else {
-      useGradient = gradient!;
-    }
-
     return Scaffold(
       extendBody: extendBody,
       appBar: appBar,
       body: Container(
         width: double.infinity,
         decoration: BoxDecoration(
-          color: !isGradient ? useColor : null,
-          gradient: isGradient ? useGradient : null,
+          color: backgroundColor,
+          gradient: gradient,
         ),
         child: body,
       ),

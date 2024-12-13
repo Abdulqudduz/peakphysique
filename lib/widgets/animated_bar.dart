@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:peak_physique/custom_theme.dart';
 
 class AnimatedBar extends StatelessWidget {
   const AnimatedBar(
@@ -17,34 +16,14 @@ class AnimatedBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final customTheme = Theme.of(context).extension<CustomTheme>();
-    bool isGradient = customTheme?.customSecondaryGradientColor?.colors != null;
-    final Color? defaultColor =
-        !isGradient ? customTheme!.customSecondaryColor : null;
-    final LinearGradient? defaultGradient = isGradient
-        ? LinearGradient(
-            colors: customTheme!.customSecondaryGradientColor!.colors,
-            stops: [0.23, 0.70],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          )
-        : null;
-    Gradient? useGradient;
-    Color? useColor;
-    if (gradient == null) {
-      useColor = defaultColor;
-      useGradient = defaultGradient;
-    } else {
-      useGradient = gradient!;
-    }
     return AnimatedContainer(
       duration: Duration(milliseconds: 100), // Corrected duration
       margin: EdgeInsets.only(bottom: 2),
       height: 2,
       width: isSelected ? animatedBarWidth : 0,
       decoration: BoxDecoration(
-        color: !isGradient ? useColor : null,
-        gradient: isGradient ? useGradient : null,
+        color: color,
+        gradient: gradient,
         borderRadius: BorderRadius.circular(12),
       ),
     );

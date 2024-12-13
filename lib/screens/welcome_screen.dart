@@ -13,7 +13,7 @@ class WelcomeScreen extends StatelessWidget {
     final customTheme = Theme.of(context).extension<CustomTheme>();
     bool isGradient = customTheme?.customPrimaryGradientColor?.colors != null;
     return CustomScaffold(
-      color: !isGradient ? customTheme!.customPrimaryColor : null,
+      backgroundColor: !isGradient ? customTheme!.customPrimaryColor : null,
       gradient: isGradient
           ? LinearGradient(
               colors: customTheme!.customPrimaryGradientColor!.colors,
