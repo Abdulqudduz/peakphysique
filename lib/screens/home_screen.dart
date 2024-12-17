@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert'; // For JSON encoding/decoding
 import 'package:peak_physique/widgets/custom_scaffold.dart';
-import 'package:peak_physique/widgets/custom_app_bar.dart';
+
+import 'package:peak_physique/custom_theme.dart';
+import 'package:peak_physique/constant_gradient.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -52,8 +54,13 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final customTheme = Theme.of(context).extension<CustomTheme>();
+    bool isGradient = customTheme?.customPrimaryGradientColor?.colors != null;
+
     return CustomScaffold(
-      appBar: CustomAppBar(
+      appBar: AppBar(
+        shadowColor: Colors.white,
+        backgroundColor: customTheme!.appBarColor,
         title: Text('Submit Form to Flask'),
       ),
       body: Form(

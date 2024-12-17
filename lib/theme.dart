@@ -14,8 +14,11 @@ enum AppTheme {
 ThemeData orangeDarkTheme = ThemeData(
   extensions: [
     CustomTheme(
+      upwardShadowColor: KUpwardShadowColorD,
+      downWardShadowColor: KDownwardShadowColorD,
       highlightAndSplashColor: KHighlightAndSplashColor,
       inactiveColor: KInactiveColor,
+      appBarColor: KAppBarColorOD,
       customPrimaryGradientColor: LinearGradient(
         colors: KCustomPrimaryGradientColor,
       ),
@@ -36,11 +39,20 @@ ThemeData orangeDarkTheme = ThemeData(
       ),
     ),
   ],
+  textSelectionTheme: TextSelectionThemeData(
+    cursorColor: KCustomSecondaryGradientColor[0], // Set the cursor color here
+    selectionColor: KCustomSecondaryGradientColor[0]
+        .withOpacity(0.4), // Highlighted text selection color
+    selectionHandleColor: KCustomSecondaryGradientColor[0], // Drag handle color
+  ),
 );
 
 //blue dark theme
 ThemeData blueDarkTheme = ThemeData(extensions: [
   CustomTheme(
+    upwardShadowColor: KUpwardShadowColorD,
+    downWardShadowColor: KDownwardShadowColorD,
+    appBarColor: KAppBarColorBD,
     highlightAndSplashColor: KHighlightAndSplashColor2,
     inactiveColor: KInactiveColor,
     customPrimaryColor: KCustomPrimaryColorBlack,
@@ -55,6 +67,9 @@ ThemeData blueDarkTheme = ThemeData(extensions: [
 //blue light theme
 ThemeData blueLightTheme = ThemeData(extensions: [
   CustomTheme(
+    upwardShadowColor: KUpwardShadowColorL,
+    downWardShadowColor: KDownwardShadowColorL,
+    appBarColor: KAppBarColorBL,
     highlightAndSplashColor: KHighlightAndSplashColor2A,
     inactiveColor: KInactiveColor2A,
     customPrimaryColor: KCustomPrimaryColorWhiteA,
@@ -70,6 +85,9 @@ ThemeData blueLightTheme = ThemeData(extensions: [
 ThemeData orangeLightTheme = ThemeData(
   extensions: [
     CustomTheme(
+      upwardShadowColor: KUpwardShadowColorL,
+      downWardShadowColor: KDownwardShadowColorL,
+      appBarColor: KAppBarColorOL,
       highlightAndSplashColor: KHighlightAndSplashColor,
       inactiveColor: KInactiveColor,
       customPrimaryGradientColor: LinearGradient(

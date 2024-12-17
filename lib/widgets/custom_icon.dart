@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 /// The `GradientIcon` widget paints the provided `icon` with a `gradient` shader or a solid color,
 /// creating a visually appealing representation of the icon. The `size` parameter determines the
 /// size of the icon widget.
-class CustomIconColor extends StatelessWidget {
+class CustomIcon extends StatelessWidget {
   final IconData icon;
   final Gradient? gradient;
   final Color? color;
@@ -19,22 +19,17 @@ class CustomIconColor extends StatelessWidget {
   /// - `solidColor`: The Color to use when a gradient is not provided (optional).
   /// - `size`: The size of the icon (default is 25).
   /// - `key`: An optional key to identify this widget.
-  const CustomIconColor({
+  const CustomIcon({
     required this.icon,
     this.gradient,
     this.color,
     this.size = 25,
     this.offset,
     Key? key,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
-    assert(
-      gradient != null || color != null,
-      'Either gradient or solidColor must be provided.',
-    );
-
     return RepaintBoundary(
       child: CustomPaint(
         size: Size(size, size),
@@ -110,7 +105,7 @@ class _GradientIconPainter extends CustomPainter {
     final yCenter = (size.height - textPainter.height) / 2;
 
     // Create an offset for the icon's position within the canvas
-    final offset = offsets ?? Offset(xCenter, yCenter + 8);
+    final offset = offsets ?? Offset(xCenter, yCenter);
 
     // Paint the icon on the canvas at the specified offset
     textPainter.paint(canvas, offset);

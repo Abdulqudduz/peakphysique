@@ -6,7 +6,7 @@ class ThemeProvider with ChangeNotifier {
   ThemeMode _themeMode = ThemeMode.system;
   // Default theme data
   ThemeData _lightThemeData = blueLightTheme;
-  ThemeData _darkThemeData = blueDarkTheme;
+  ThemeData _darkThemeData = orangeDarkTheme;
 
   //method to access the current theme data
   ThemeMode get themeMode => _themeMode;

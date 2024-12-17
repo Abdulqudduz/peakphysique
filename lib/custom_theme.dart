@@ -15,6 +15,9 @@ class CustomTheme extends ThemeExtension<CustomTheme> {
   final Color? trasperentTextButtonBorderColor;
   final Color? customCardColor;
   final Color? customCircleCardColor;
+  final Color? appBarColor;
+  final Color? upwardShadowColor;
+  final Color? downWardShadowColor;
 
   const CustomTheme({
     this.customPrimaryGradientColor,
@@ -31,6 +34,9 @@ class CustomTheme extends ThemeExtension<CustomTheme> {
     this.trasperentTextButtonBorderColor,
     this.customCardColor,
     this.customCircleCardColor,
+    this.appBarColor,
+    this.upwardShadowColor,
+    this.downWardShadowColor,
   });
 
   @override
@@ -51,6 +57,9 @@ class CustomTheme extends ThemeExtension<CustomTheme> {
     Color? trasperentTextButtonBorderColor,
     Color? customCardColor,
     Color? customCircleCardColor,
+    Color? appBarColor,
+    Color? upwardShadowColor,
+    Color? downWardShadowColor,
   }) {
     return CustomTheme(
       //Gradient colors
@@ -81,6 +90,9 @@ class CustomTheme extends ThemeExtension<CustomTheme> {
       customCardColor: customCardColor ?? this.customCardColor,
       customCircleCardColor:
           customCircleCardColor ?? this.customCircleCardColor,
+      appBarColor: appBarColor ?? this.appBarColor,
+      upwardShadowColor: upwardShadowColor ?? this.upwardShadowColor,
+      downWardShadowColor: downWardShadowColor ?? this.downWardShadowColor,
     );
   }
 
@@ -124,6 +136,10 @@ class CustomTheme extends ThemeExtension<CustomTheme> {
       customCardColor: Color.lerp(customCardColor, other.customCardColor, t),
       customCircleCardColor:
           Color.lerp(customCircleCardColor, other.customCircleCardColor, t),
+      appBarColor: Color.lerp(appBarColor, other.appBarColor, t),
+      upwardShadowColor: Color.lerp(upwardShadowColor, upwardShadowColor, t),
+      downWardShadowColor:
+          Color.lerp(downWardShadowColor, downWardShadowColor, t),
     );
   }
 }

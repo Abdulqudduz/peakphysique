@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:peak_physique/data/bottom_nav_bar_icon_data.dart';
-import 'package:peak_physique/constant_color.dart';
-// import 'package:gradient_icon/gradient_icon.dart';
 import 'package:peak_physique/widgets/animated_bar.dart';
 import 'package:peak_physique/custom_theme.dart';
-import 'package:peak_physique/widgets/custom_icon_color.dart';
+import 'package:peak_physique/widgets/custom_icon.dart';
 
 class CustomBottomNavigationBar extends StatefulWidget {
   final int selectedIndex;
@@ -44,6 +42,18 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
               )
             : null,
         borderRadius: BorderRadius.circular(30),
+        boxShadow: [
+          BoxShadow(
+            color: customTheme!.upwardShadowColor!,
+            offset: Offset(-3, -3),
+            blurRadius: 30,
+          ),
+          BoxShadow(
+            color: customTheme.downWardShadowColor!,
+            offset: Offset(3, 3),
+            blurRadius: 30,
+          ),
+        ],
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -80,8 +90,8 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
                         isSelected: isSelected,
                         animatedBarWidth: animatedBarWidth,
                         color: isSelected && !isGradient
-                            ? customTheme!.customSecondaryColor
-                            : customTheme!.inactiveColor,
+                            ? customTheme.customSecondaryColor
+                            : null,
                         gradient: isGradient
                             ? LinearGradient(
                                 colors: customTheme
@@ -101,7 +111,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
                             isSelected ? animatedIconSize : unAnimatedIconSize,
                         height:
                             isSelected ? animatedIconSize : unAnimatedIconSize,
-                        child: CustomIconColor(
+                        child: CustomIcon(
                           icon: navBarItem.data[index].icon,
                           color: isSelected && !isGradient
                               ? customTheme.customSecondaryColor

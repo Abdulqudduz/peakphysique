@@ -3,16 +3,26 @@ import 'package:peak_physique/models/custom_icons.dart';
 import 'package:peak_physique/theme.dart';
 import 'package:peak_physique/theme_provider.dart';
 import 'package:provider/provider.dart';
-import 'package:peak_physique/widgets/custom_app_bar.dart';
+
 import 'package:peak_physique/widgets/custom_scaffold.dart';
+import 'package:peak_physique/custom_theme.dart';
+import 'package:peak_physique/constant_gradient.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final customTheme = Theme.of(context).extension<CustomTheme>();
+    bool isGradient = customTheme?.customPrimaryGradientColor?.colors != null;
+
     return CustomScaffold(
-      appBar: CustomAppBar(
+      backgroundColor: !isGradient ? customTheme!.customPrimaryColor : null,
+      gradient: isGradient
+          ? linearGradient(customTheme!.customPrimaryGradientColor!.colors)
+          : null,
+      appBar: AppBar(
+        backgroundColor: customTheme!.appBarColor,
         automaticallyImplyLeading: false,
         title: Center(child: Text('Profile')),
         actions: [

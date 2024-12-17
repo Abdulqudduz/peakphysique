@@ -1,47 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:peak_physique/custom_theme.dart';
 
-class CustomTextColor extends StatelessWidget {
-  final Color color;
+class CustomText extends StatelessWidget {
+  final Color? color;
   final double size;
   final Offset? offset;
   final String text;
+  final TextAlign? textAlign;
   final Gradient? gradient;
 
-  const CustomTextColor({
+  const CustomText({
     this.gradient,
     this.size = 25,
     this.offset,
     required this.text,
     this.color = Colors.white,
+    this.textAlign,
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final customTheme = Theme.of(context).extension<CustomTheme>();
-    final isGradient =
-        customTheme?.customSecondaryGradientColor?.colors != null;
-
-    final Color? defaultColor =
-        !isGradient ? customTheme?.customSecondaryColor : null;
-    final Gradient? defaultGradient = isGradient
-        ? LinearGradient(
-            colors: customTheme!.customSecondaryGradientColor!.colors,
-            stops: [0.23, 0.70],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          )
-        : null;
-
-    final Gradient? useGradient = gradient ?? defaultGradient;
-    final Color? useColor = gradient == null ? defaultColor : null;
-
-    if (!isGradient) {
+    if (color != null) {
       return Text(
         text,
+        textAlign: textAlign,
         style: TextStyle(
-          color: useColor,
+          color: color,
           fontSize: size,
           fontFamily: 'TT commons',
           fontStyle: FontStyle.normal,
@@ -59,12 +43,13 @@ class CustomTextColor extends StatelessWidget {
           bounds.height,
         );
 
-        return useGradient!.createShader(offsetBounds);
+        return gradient!.createShader(offsetBounds);
       },
       child: Text(
         text,
+        textAlign: textAlign,
         style: TextStyle(
-          color: null, // The color is handled by the ShaderMask
+          color: Colors.white,
           fontSize: size,
           fontFamily: 'TT commons',
           fontStyle: FontStyle.normal,

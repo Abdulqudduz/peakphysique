@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 
+const Color KUpwardShadowColorD = Color(0xFF35393F);
+const Color KDownwardShadowColorD = Color(0xFF23262A);
+
+const Color KUpwardShadowColorL = Colors.white;
+const Color KDownwardShadowColorL = Color(0xFFA7A9AF);
 //orange theme colors
 
 const List<Color> KCustomPrimaryGradientColor = [
@@ -56,6 +61,8 @@ const List<Color> kCustomCircleCardGradientColor2 = [
   Color(0xFFDFE0E2), // Light counterpart of 0xFF32383E
   Color(0xFFF4F4F5), // Light counterpart of 0xFF17191C
 ];
+const Color KAppBarColorOD = Color(0xFF353A40);
+const Color KAppBarColorOL = Color(0xFFD6D7D9);
 
 const Color KInactiveColor = Color(0xFF71717A);
 
@@ -74,6 +81,8 @@ const Color KCustomSecondaryColorB = Color(0xFFFFA05C);
 const Color KHighlightAndSplashColor = Color(0xFFFFA05C);
 
 //blue theme colorColor(0xFFBCCEDF)s
+const Color KAppBarColorBD = Color(0xFF121416);
+const Color KAppBarColorBL = Color(0xFFFFFFFF);
 
 const Color KCustomPrimaryColorBlack = Color(0xFF121416);
 

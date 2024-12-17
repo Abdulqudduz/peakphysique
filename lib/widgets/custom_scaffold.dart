@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:peak_physique/custom_theme.dart';
+import 'package:peak_physique/constant_gradient.dart';
 
 class CustomScaffold extends StatelessWidget {
   late final Color? backgroundColor;
@@ -18,14 +20,20 @@ class CustomScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final customTheme = Theme.of(context).extension<CustomTheme>();
+    bool isGradient = customTheme?.customPrimaryGradientColor?.colors != null;
+
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       extendBody: extendBody,
       appBar: appBar,
       body: Container(
         width: double.infinity,
         decoration: BoxDecoration(
-          color: backgroundColor,
-          gradient: gradient,
+          color: !isGradient ? customTheme!.customPrimaryColor : null,
+          gradient: isGradient
+              ? linearGradient(customTheme!.customPrimaryGradientColor!.colors)
+              : null,
         ),
         child: body,
       ),
